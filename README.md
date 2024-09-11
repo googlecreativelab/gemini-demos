@@ -4,7 +4,7 @@ Hello! 👋 This is a repository of examples built with Google's Gemini API, whi
 
 ## What You'll Find:
 
-Inspiring Examples: These demos are your playground to explore the latest Gemini models (Flash 1.5, Pro, and others) in action. Dive into projects that demonstrate:
+Examples: These demos show the latest Gemini models (Flash 1.5, Pro, and others) in action. Dive into projects that demonstrate:
 
 - Image and Video understanding: Analyze content, classify objects, and even generate timestamped summaries.
 - Multimodal interaction: Combine text and image inputs to create engaging user experiences.
