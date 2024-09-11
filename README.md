@@ -1,6 +1,6 @@
 # Gemini API Demos
 
-Welcome to the Gemini API Demo repository! This collection showcases the exciting potential of Google's Gemini API, a cutting-edge tool for building AI applications that understand and generate text, images, and more.
+Hello! 👋 This is a repository of examples built with Google's Gemini API, which lets you build multimodal AI applications with text, images, and more.
 
 ## What You'll Find:
 
