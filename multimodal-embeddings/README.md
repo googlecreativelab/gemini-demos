@@ -1,4 +1,6 @@
-> **This repo is provided _as-is_ for reference**, since you need a Firebase project with at least one collection that contains embeddings for it to be functional. We'll go through the basics of getting that setup next, but be warned - it's not yet plug-and-play :)
+> **This repo is provided _as-is_ for reference**, since you need a Firebase project with at least one collection that contains embeddings, and the proper APIs enabled (with billing) to generate embeddings.
+
+> **NEW!** While not _fully_ functional, the repo now includes exported Firebase emulator data so you can get up and running quicker, follow along below!
 
 # Multimodal Embeddings Demo
 
@@ -17,14 +19,15 @@ The app is built with Firebase and SvelteKit, which uses Threlte for a declarati
 
 ## Get Started
 
-In addition to the Firebase project, you'll also need an API key for the embedding calls to Gemini so:
+We'll be able to test quickly with some exported Firebase Emulator data so let's dive right in:
 
 1. [Create a new project](https://firebase.google.com/docs/web/setup) in Firebase that has Functions, Firestore and Storage enabled.
-2. [Get an API key (via the console or AI Studio)](https://aistudio.google.com/app/apikey) for your Gemini calls and then create a `.env` file with your `GEMINI_API_KEY=yourkeyhere` in this directory.
-3. Update `/src/lib/consts.ts` with your project info.
-4. `npm i && npm run dev` should now 'work', but you won't have any data to explore until you create some embeddings.
+2. Run `firebase init` within this folder, enabling Firestore, Storage and Emulators to quickly be able to test with emulator data.
+3. Update `/src/lib/consts.ts` with your firebase project info.
+4. `npm i && npm run dev:emulate` should now work, building the site and starting the emulators. You can test this by visiting [`http://localhost:5173/viz`](http://localhost:5173/viz), which should load in the provided 'Weater' dataset.
+5. Optional - Get a Gemini API key for any Gemini-related extra tasks.
 
-> Don't have any data to embed? We initially used public open source data sets available on places like Kaggle and Hugging Face to test our ideas. [This weather dataset](https://www.kaggle.com/datasets/jehanbhathena/weather-dataset) was a great starting place, as it visualizes really nicely.
+> `firebase init` creates some files, like `firebase.rc` and some rules for Firestore and Firebase Storage. If you run into errors like the 'weather' images not loading in `/viz`, it could be the storage rules being set to 'false' as opposed to something that allows them to be loaded. Learn more in the `Visualizing` section below.
 
 ### Firebase Cloud Function for Embedding Generation
 
@@ -33,6 +36,8 @@ We've included a little bonus here in `/fb/functions` that can _automatically_ g
 This was great for our team when we were prototyping with the API since anyone could just create a new folder, upload images, and have it available in the UI for exploration.
 
 Check out [`/fb/README.md`](fb/README.md) for more info.
+
+> Note: you _can_ get this to run in the emulator as well, but its out of scope for this already too-long doc.
 
 There are a bunch of utility methods and components as well in `/src/lib`, but most importantly used by `/search` and `/viz` is `/src/lib/components/CollectionList.svelte` which will attempt to pull in any Firestore Collections created by the function in `/fb/functions` (if you choose to use that).
 
@@ -168,6 +173,8 @@ And since we're using the Multimodal Embeddings API, your query can be text, an 
 ### Visualizing
 
 `/viz` takes your Firestore collections and attempts to plot them in 3D using UMAP, an API similar to T-SNE but much faster (and just as non-deterministic).
+
+> [Learn more about UMAP here.](https://pair-code.github.io/understanding-umap/)
 
 |           ![static/viz.png](static/viz.png)           |
 | :---------------------------------------------------: |

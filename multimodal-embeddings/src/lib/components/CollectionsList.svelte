@@ -1,13 +1,14 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import * as DropdownMenu from './ui/dropdown-menu';
 	import { Button } from './ui/button';
 	import { postJson } from '$lib/utils';
+	import { useEmulator } from '$lib/consts';
 	import type { Collection } from '$lib/api';
-	// Must use this component within a +page.svelte in order to take advantage
-	// of $page.data which should expose a load() function that has collections
+	import * as DropdownMenu from './ui/dropdown-menu';
+
 	export let selectedCollection: string = 'Loading...';
 	export let prefix: string = 'Collection';
+
 	let collections: Collection[];
 
 	const getCollections = async () => {
@@ -15,10 +16,20 @@
 		collections = res.collections;
 	};
 
-	onMount(() => {
-		getCollections();
-		// set default here
-		selectedCollection = '';
+	// We had built a large Firestore database with many collections of
+	// embeddings we were testing with, so a simple dropdown component made
+	// lots of sense, but setting it to a single collection (like when we're emulating)
+	// works too!
+	onMount(async () => {
+		if (useEmulator) {
+			selectedCollection = 'weather';
+		} else {
+			await getCollections();
+			if (collections.length) {
+				// Grab first collection as default if available
+				selectedCollection = collections[0].id;
+			}
+		}
 	});
 </script>
 

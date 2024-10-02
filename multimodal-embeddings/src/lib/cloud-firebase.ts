@@ -2,10 +2,14 @@
  * Yes, there is another firebase.ts in $lib/ but this one has to use
  * special `@google-cloud/firestore` package instead, which contains
  * the necessary VectorQuery findNearest() method and a simple listCollections() method
+ *
+ * Sadly, this library completely ignores the emulator API, so we can't include
+ * data for you to test with specific collections. It will always try to reach
+ * your prod Firestore database online.
  */
 import { Firestore, FieldValue } from '@google-cloud/firestore';
-import type { VectorQuery, VectorQuerySnapshot } from '@google-cloud/firestore';
 import { FIRESTORE_DB_ID } from './consts';
+import type { VectorQuery, VectorQuerySnapshot } from '@google-cloud/firestore';
 
 const db = new Firestore({ databaseId: FIRESTORE_DB_ID });
 

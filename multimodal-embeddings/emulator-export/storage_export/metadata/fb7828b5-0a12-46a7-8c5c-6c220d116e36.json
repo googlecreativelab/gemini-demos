@@ -1,0 +1,19 @@
+{
+  "name": "mmembed/weather/thumb_3600.jpg",
+  "bucket": "mm-demo.appspot.com",
+  "metageneration": 1,
+  "generation": 1727834214285,
+  "contentType": "image/jpeg",
+  "storageClass": "STANDARD",
+  "contentDisposition": "inline",
+  "downloadTokens": [
+    "69b91dc4-9aaa-427e-a0bb-ea5dbdf86ab3"
+  ],
+  "etag": "fDFo7hiOZhVQmmQg1t0QCO1vtdY",
+  "customMetadata": {},
+  "timeCreated": "2024-10-02T01:56:54.285Z",
+  "updated": "2024-10-02T01:56:54.285Z",
+  "size": 20827,
+  "md5Hash": "52ygQ5oknPf8KC2vYOPXlQ==",
+  "crc32c": "313767107"
+}

@@ -1,18 +1,25 @@
 import { initializeApp } from 'firebase/app';
-import { collection, getDocs, getFirestore } from 'firebase/firestore';
-import { getStorage, ref, getDownloadURL } from 'firebase/storage';
-import { FIREBASE_PROJECT_ID, FIRESTORE_DB_ID } from './consts';
+import { collection, connectFirestoreEmulator, getDocs, getFirestore } from 'firebase/firestore';
+import { getStorage, ref, getDownloadURL, connectStorageEmulator } from 'firebase/storage';
+import {
+	FIREBASE_CONFIG,
+	FIREBASE_STORAGE_EMULATOR_BUCKET,
+	FIRESTORE_DB_ID,
+	useEmulator
+} from './consts';
 
-const firebaseConfig = {
-	projectId: FIREBASE_PROJECT_ID
-	// rest of your config, from the firebase console
-	// directions: https://firebase.google.com/docs/web/setup
-};
-
-export const app = initializeApp(firebaseConfig);
+export const app = initializeApp(FIREBASE_CONFIG);
 export const fs = getFirestore(FIRESTORE_DB_ID);
 
-export const storage = getStorage(app);
+// The emulator export comes with its own storage bucket name, used here
+export let storage = useEmulator
+	? getStorage(app, FIREBASE_STORAGE_EMULATOR_BUCKET)
+	: getStorage(app);
+
+if (useEmulator) {
+	connectFirestoreEmulator(fs, 'localhost', 8080);
+	connectStorageEmulator(storage, 'localhost', 9199);
+}
 
 export const allDocsInCollection = async (collName: string) => {
 	return await getDocs(collection(fs, collName));

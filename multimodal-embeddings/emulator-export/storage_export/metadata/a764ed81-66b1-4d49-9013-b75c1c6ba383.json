@@ -1,0 +1,19 @@
+{
+  "name": "mmembed/weather/0601.jpg",
+  "bucket": "mm-demo.appspot.com",
+  "metageneration": 1,
+  "generation": 1727834213913,
+  "contentType": "image/jpeg",
+  "storageClass": "STANDARD",
+  "contentDisposition": "inline",
+  "downloadTokens": [
+    "6740f1fd-266a-4651-8923-2b74012388a6"
+  ],
+  "etag": "tDRYwDCU+vfoQzOgc2IhwyS0trc",
+  "customMetadata": {},
+  "timeCreated": "2024-10-02T01:56:53.913Z",
+  "updated": "2024-10-02T01:56:53.913Z",
+  "size": 32870,
+  "md5Hash": "xGgm8PsD99kXF6LfPzrwcw==",
+  "crc32c": "1870009792"
+}
