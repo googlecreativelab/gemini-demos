@@ -2,9 +2,9 @@
 
 # Multimodal Embeddings Demo
 
-Check out this video on Labs.google to see a quick overview of the project:
+Check out this video on the Labs.google X account to see a quick overview of the project:
 
-[Video Screenshot]
+![static/screenshot.png](https://x.com/labsdotgoogle/status/1838686949835706607)
 
 > Unsure what embeddings are? [Here's an old video](https://www.youtube.com/watch?v=wvsE8jm1GzE) we made about visualizing embeddings that does a good job explaining the basics. Learn more about Multimodal Embeddings in the [Cloud docs here](https://cloud.google.com/vertex-ai/generative-ai/docs/embeddings/get-multimodal-embeddings).
 
