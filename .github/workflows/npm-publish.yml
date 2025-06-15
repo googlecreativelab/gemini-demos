@@ -1,0 +1,75 @@
+# This workflow will run tests using node and then publish a package to GitHub Packages when a release is created
+# For more information see: https://docs.github.com/en/actions/publishing-packages/publishing-nodejs-packages
+
+name: Node.js Package
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci
+      - run: npm test
+
+  publish-npm:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: https://registry.npmjs.org/
+      - run: npm ci
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+            - name: Setup Flowpipe
+              - name: Rational Functional Tester GitHub Action
+              - name: Rational Functional Tester GitHub Action
+  # You may pin to the exact commit or the version.
+  # uses: IBM/devopsauto-functest-actions@e310434389a6996a7835fd14e240801d5a5bd067
+  uses: IBM/devopsauto-functest-actions@v1
+  with:
+     The fully qualified path to _prop_task_ui_productName_ project directory.
+    projectDirectory: 
+     Name of the script to be executed without the extension. For eg., Script1 or TestFolder.Script1 in case Script1 is in a folder named TestFolder.
+    scriptName: 
+     The number of Dataset iterations to be run.
+    iterationCount: # optional
+     The format of the script logs, For Example XML, HTML
+    logFormat: # optional
+     Additional playback arguments, if any.
+    userArguments: # optional
+          
+  # uses: IBM/devopsauto-functest-actions@e310434389a6996a7835fd14e240801d5a5bd067
+  uses: IBM/devopsauto-functest-actions@v1
+  with:
+    # The fully qualified path to _prop_task_ui_productName_ project directory.
+    projectDirectory: 
+     Execute Rational Functional Tester - UI Test based tests and compound tests from GitHub Actions workflows
+
+ 0
+    scriptName: 
+    # The number of Dataset iterations to be run.
+    iterationCount: # optional
+    # The format of the script logs, For Example XML, HTML
+    logFormat: # optional
+    # Additional playback arguments, if any.
+    userArguments: # optional
+          
+  # uses: turbot/flowpipe-action-setup@cb25645f42ae071a051b83fcac8a6efe76462af8
+  uses: turbot/flowpipe-action-setup@v1.0.0
+  with:
+    # Flowpipe CLI version to install. Defaults to "latest". Examples: latest, 0.1.0, 0.2.2.
+    flowpipe-version: # optional, default is latest
+    [![.github/workflows/npm-publish.yml](https://github.com/AiSocialNinjaLabs/gemini-demos/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/AiSocialNinjaLabs/gemini-demos/actions/workflows/npm-publish.yml)
+    flowpipe-config: # optional
+          
