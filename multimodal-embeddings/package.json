@@ -57,7 +57,7 @@
 		"clsx": "^2.1.1",
 		"dat.gui": "^0.7.9",
 		"dotenv": "^16.4.5",
-		"firebase": "^10.12.2",
+		"firebase": "^12.10.0",
 		"lucide-svelte": "^0.396.0",
 		"sharp": "^0.33.4",
 		"svelte-radix": "^1.1.0",
